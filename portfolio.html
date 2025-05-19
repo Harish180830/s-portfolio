@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Portfolio</title>
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        margin: 0;
+        background: #b5eab4;
+      }
+      @keyframes fadeUp {
+        0% {
+          opacity: 0.1;
+          transform: translateY(30px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      #section {
+        margin-left: 515px;
+        max-width: 1000px;
+        text-align: center;
+        padding: 6rem 2rem;
+        font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+          sans-serif;
+        font-size: 50px;
+        animation: fadeUp 1.8s ease-in-out;
+        animation-delay: 0.3s;
+        background: linear-gradient(to right, rgb(79, 255, 99), rgb(0, 182, 6));
+        color: white;
+        border-radius: 20px;
+        margin-top: 350px;
+      }
+      header {
+        padding: 10px;
+        position: fixed;
+        display: flex;
+        width: 100%;
+        background-color: rgb(1, 28, 5);
+        color: rgb(33, 212, 24);
+      }
+      header h1 {
+        margin-left: 20px;
+      }
+      ul {
+        margin-top: 50px;
+        padding: 20px;
+      }
+      li {
+        font-size: 25px;
+        font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+        display: inline;
+        margin: 10px;
+        padding: 25px;
+      }
+      nav {
+        margin-left: 1100px;
+      }
+      li:hover {
+        color: rgb(33, 212, 24);
+        text-decoration: underline;
+      }
+      a {
+        text-decoration: none;
+        color: white;
+      }
+
+      section {
+        width: 90%;
+      }
+
+      .section1 {
+        padding: 4rem 2rem;
+        height: 100vh;
+        margin: auto;
+        animation: fadeIn 1s ease-in;
+        border-radius: 16px;
+        margin-bottom: 2rem;
+        background-color: #ffffff;
+      }
+
+      .skillsdiv {
+        margin-top: 150px;
+      }
+
+      .skillsdiv legend {
+        font-size: 30px;
+        color: black;
+        background: none;
+        border: none;
+      }
+
+      .grid-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 5px;
+        margin-top: 20px;
+        text-align: center;
+      }
+
+      .grid-item img {
+        width: 100px;
+        height: 100px;
+        object-fit: contain;
+      }
+
+      .grid-item p {
+        margin-top: 8px;
+        font-weight: bold;
+        color: black;
+      }
+      #about {
+        border: none;
+        margin: none;
+        padding-top: 150px;
+        align-items: center;
+        font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+          sans-serif;
+        font-size: 30px;
+      }
+      .project-card {
+        margin-top: 30px;
+        background-color: white;
+        padding: 1.5rem;
+        margin: 1rem 0;
+        border-radius: 12px;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        font-size: 24px;
+      }
+
+      .project-card:hover {
+        transform: scale(1.02);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      }
+      #projects {
+        text-align: center;
+        background-color: #ffffff;
+        padding: 4rem 2rem;
+        margin-left: 80.2px;
+        margin-bottom: 32px;
+        width: 90%;
+        height: 100vh;
+        border-radius: 16px;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+      }
+      #projects h2 {
+        font-size: 40px; /* Made larger */
+        margin-bottom: 30px;
+        text-align: center;
+      }
+      form {
+        
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 2rem;
+        background-color: #ffffff;
+        border-radius: 12px;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+      }
+
+      input,
+      textarea {
+        padding: 0.75rem;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        font-size: 1rem;
+        width: 100%;
+        transition: border-color 0.3s ease;
+      }
+
+      input:focus,
+      textarea:focus {
+        border-color:  rgb(33, 212, 24);
+        outline: none;
+      }
+
+      button {
+        background-color: #0f172a;
+        color: white;
+        padding: 0.75rem;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 1rem;
+        font-weight: bold;
+        transition: background-color 0.3s ease;
+      }
+
+      button:hover {
+        background-color:  rgb(33, 212, 24);
+      }
+      #blog {
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Center the content of the section */
+        justify-content: center;
+        background-color: #ffffff;
+        padding: 4rem 2rem;
+      }
+
+      .blog-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 130px;
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 ; /* Center the blog container */
+      }
+
+      .blog-card {
+        gap: 100px;
+        width:400px;
+        padding: 15px;
+        background-color: rgba(135, 246, 115, 0.433);
+        border: 2px solid rgb(199, 241, 176);
+        border-radius: 15px;
+        transition: 0.3s;
+      }
+
+      .blog-card:hover {
+        transform: translateY(-5px);
+      }
+
+      .blog-title {
+        font-size: 30px; /* Increase the font size of the title */
+        margin-bottom: 10px;
+      }
+
+      .blog-date {
+        font-size: 16px; /* Keep the date size smaller */
+        color: #ccc;
+        margin-bottom: 15px;
+      }
+
+      .blog-content {
+        font-size: 14px; /* Increase the content font size */
+        line-height: 1.6;
+        color: black;
+      }
+      #footer {
+        color: white;
+        height: 200px;
+        width: 100%;
+        display: flex;
+        background-color: black;
+        justify-content: center;
+        align-items: center;
+        font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+          "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+        font-size: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <header id="main-header">
+      <h1
+        style="
+          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+          font-size: 52px;
+        "
+      >
+       HARISH
+      </h1>
+      <nav>
+        <ul>
+          <a href="#home"><li>Home</li></a>
+          <a href="#about"><li>About</li></a>
+          <a href="#projects"><li>Project</li></a>
+          <a href="#contact"><li>Contact</li></a>
+          <a href="#blog"><li>Blog</li></a>
+        </ul>
+      </nav>
+    </header>
+    <section id="home" class="section1">
+      <div id="section">
+        <h1 style="margin-top: 20px">I AM HARISH S</h1>
+        <p style="font-size: 25px">
+          Creative Developer | Full Stack Enthusiast | Tech Explorer
+        </p>
+      </div>
+    </section>
+    <section id="about" class="section1">
+      <h1 style="text-align: center">ABOUT ME</h1>
+      <p style="margin-top: 200px">
+        Hi, I'm Harish S — a passionate Computer Science student with a
+        strong interest in web development. I enjoy building responsive and
+        interactive websites that blend functionality with sleek design. I'm
+        constantly learning new technologies and love turning ideas into clean,
+        efficient code. Whether it's front-end styling or bringing features to
+        life with JavaScript, I'm always excited to create something impactful.
+      </p>
+      <fieldset class="skillsdiv">
+        <legend>Skills</legend>
+        <div class="grid-container">
+          <div class="grid-item">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/1/19/C_Logo.png"
+              alt="C"
+            />
+            <p>C</p>
+          </div>
+          <div class="grid-item">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/1/18/ISO_C%2B%2B_Logo.svg"
+              alt="C++"
+            />
+            <p>C++</p>
+          </div>
+          <div class="grid-item">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/en/3/30/Java_programming_language_logo.svg"
+              alt="Java"
+            />
+            <p>Java</p>
+          </div>
+          <div class="grid-item">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg"
+              alt="HTML"
+            />
+            <p>HTML</p>
+          </div>
+          <div class="grid-item">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/d/d5/CSS3_logo_and_wordmark.svg"
+              alt="CSS"
+            />
+            <p>CSS</p>
+          </div>
+          <div class="grid-item">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png"
+              alt="JavaScript"
+            />
+            <p>JavaScript</p>
+          </div>
+          <div class="grid-item">
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqqLnMxa4Sr2X4PhU8nYHpyZQRnv3AoF7CZM1OFHvZoRm1eyHG7EV64nYPSYjk8F3t7Mc&usqp=CAU"
+              alt="MongoDB"
+            />
+            <p>MongoDB</p>
+          </div>
+          <div class="grid-item">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/6/64/Expressjs.png"
+              alt="Express.js"
+            />
+            <p>Express.js</p>
+          </div>
+          <div class="grid-item">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/4/47/React.svg"
+              alt="React"
+            />
+            <p>React</p>
+          </div>
+          <div class="grid-item">
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXrkH8eBMXAAjiC2BMRMnlcPnb4fbYgp2yYW8ONY9zopXFFZF0s1B89azArCNM6aeBnVU&usqp=CAU"
+              alt="Node.js"
+            />
+            <p>Node.js</p>
+          </div>
+        </div>
+      </fieldset>
+    </section>
+    <section id="projects">
+      <h2 style="margin-top: 200px;">Projects</h2>
+      <div class="project-card">
+        <h3>Memory card game using JavaScript</h3>
+        <p>
+          This project is a Memory Card Game built using JavaScript, where
+          players match pairs of cards by remembering their positions. It
+          includes interactive flip animations, score tracking, and a reset
+          feature for endless fun.
+        </p>
+      </div>
+      <div class="project-card">
+        <h3>Drum Kit using JavaScript</h3>
+        <p>
+          A fun interactive drum kit that plays different drum sounds when
+          corresponding keys are pressed. Built with HTML, CSS, and JavaScript
+          for responsive interaction.
+        </p>
+      </div>
+      <div class="project-card">
+        <h3>Quiz App using JavaScript</h3>
+        <p>
+          A multiple-choice quiz app that tracks the score and gives results at
+          the end. Designed using JavaScript logic and dynamic HTML updates.
+        </p>
+      </div>
+    </section>
+    <section id="contact" class="section1" style="font-size: 22px; text-align: center;">
+      <h1 style="font-size: 30px; text-align: center; margin-top: 200px;">CONTACT ME</h1>
+      <form class="contact-form">
+        <label for="name">Your Name</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          placeholder="Enter your name"
+          required
+        />
+
+        <label for="email">Your Email</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Enter your email"
+          required
+        />
+
+        <label for="message">Message</label>
+        <textarea
+          id="message"
+          name="message"
+          rows="5"
+          placeholder="Write your message here..."
+          required
+        ></textarea>
+
+        <button type="submit" style="font-size: 19px;">Send Message</button>
+      </form>
+    </section>
+    <section id="blog" class="section1">
+      <h2 style="text-align: center; font-size: 50px">Blogs</h2>
+      <div class="blog-container">
+        <div class="blog-card">
+          <div class="blog-title" style="font-weight: 600">
+            How I Started with MERN Stack
+          </div>
+          <div class="blog-date" style="color: black">February 2025</div>
+          <div class="blog-content" style="font-size: 30px">
+            &nbsp;&nbsp;My journey into full-stack development began with the basics of
+            HTML, CSS, and JavaScript. Eventually, I discovered the MERN stack
+            and started building dynamic applications...
+          </div>
+        </div>
+
+        <div class="blog-card">
+          <div class="blog-title" style="font-weight: 600">
+            Tips to Improve Front-End Skills
+          </div>
+          <div class="blog-date" style="color: black">March 2025</div>
+          <div class="blog-content" style="font-size: 30px">
+            &nbsp;&nbsp;Whether you're working with React or plain HTML,CSS, front-end
+            development demands creativity and structure. Here's how I approach
+            clean UI/UX design and efficient layout building...
+          </div>
+        </div>
+
+        <div class="blog-card">
+          <div class="blog-title" style="font-weight: 600">
+            Building My First Full Stack Project
+          </div>
+          <div class="blog-date" style="color: black">April 2025</div>
+          <div class="blog-content" style="font-size: 30px">
+            &nbsp; &nbsp;My first full-stack project was a simple task manager. It taught me
+            the importance of database structure, API routes, and handling
+            frontend-backend communication...
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer id="footer">
+      <p>&copy; 2025 HARISH S. All Rights Reserved.</p>
+    </footer>
+  </body>
+</html>
